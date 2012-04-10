@@ -1,5 +1,5 @@
 class splunk inherits splunk::params {
-  case $::kernel {
+  case ${::kernel} {
     /(?i)linux/: { include "splunk::linux_${splunk::params::deploy}" }
     /(?i)windows/: { 
       if $splunk::params::deploy == 'syslog' { 
