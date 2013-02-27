@@ -1,6 +1,6 @@
 class splunk::params {
   $deploy              = $::splunk_deploy #valid values are server, syslog, forwarder
-  $splunk_ver          = '4.3.1-119532'
+  $splunk_ver          = $::splunk_ver #'4.3.1-119532'
   $installer           = $deploy ? {
                            'server' => $::architecture ? {
                              'i386' => $::operatingsystem ? {
