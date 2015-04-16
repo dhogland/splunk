@@ -34,7 +34,7 @@ class splunk::linux_server {
     source   => "${splunk::params::linux_stage_dir}/${splunk::params::installer}",
     provider => $::operatingsystem ? {
       /(?i)(centos|redhat)/ => 'rpm',
-      'debian'            => 'dpkg',
+      /(?i)(debian|ubuntu)/ => 'dpkg',
     },
     notify   => Exec['start_splunk'],
   }
